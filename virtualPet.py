@@ -20,7 +20,7 @@ class VirtualLeniTurtle:
 
 # Initialize Pygame
 pygame.init()
-screen = pygame.display.set_mode((500, 500))
+screen = pygame.display.set_mode((500, 400))
 pygame.display.set_caption("Virtual Leni Turtle")
 
 # Create and configure the virtual pet
