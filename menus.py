@@ -31,6 +31,12 @@ class Button:
             return False
 
 class ImgButton:
+    def __init__(self, img_path, pos):
+        self.image = pygame.image.load(img_path)
+        self.pos = pos
+        self.button = pygame.rect.Rect((self.pos[0], self.pos[1]), (self.image.get_width(), self.image.get_height()))
+
+    
     
 
 def draw_game():
