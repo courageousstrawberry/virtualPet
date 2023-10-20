@@ -30,6 +30,9 @@ class Button:
         else: 
             return False
 
+class ImgButton:
+    
+
 def draw_game():
     button = Button('Main Menu', (230,450))
     button.draw()

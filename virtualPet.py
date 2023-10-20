@@ -20,7 +20,7 @@ class VirtualLeniTurtle:
 
 # Initialize Pygame
 pygame.init()
-screen = pygame.display.set_mode((500, 400))
+screen = pygame.display.set_mode((500, 500))
 pygame.display.set_caption("Virtual Leni Turtle")
 
 # Create and configure the virtual pet
@@ -35,7 +35,7 @@ while running:
 
     pet.update()
 
-    screen.fill((255, 255, 255))
+    screen.fill((0, 206, 209))
     screen.blit(pet.get_current_frame(), (pet.x, pet.y))
     pygame.display.flip()
     clock.tick(10)  # Adjust the frame rate as needed
