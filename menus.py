@@ -36,11 +36,17 @@ class ImgButton:
         self.pos = pos
         self.button = pygame.rect.Rect((self.pos[0], self.pos[1]), (self.image.get_width(), self.image.get_height()))
 
-    
-    
+    def draw(self):
+        screen.blit(self.image, (self.pos[0], self.pos[1]))
 
+    def check_clicked(self):
+        if self.button.collidepoint(pygame.mouse.get_pos()) and pygame.mouse.get_pressed()[0]:
+            return True
+        else:
+            return False
+    
 def draw_game():
-    button = Button('Main Menu', (230,450))
+    button = ImgButton('menu_btn.png', (370,440))
     button.draw()
     return button.check_clicked()
 
