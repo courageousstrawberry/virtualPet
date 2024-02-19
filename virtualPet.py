@@ -18,26 +18,40 @@ class VirtualLeniTurtle:
     def get_current_frame(self):
         return self.images[self.current_frame]
 
-# Initialize Pygame
-pygame.init()
-screen = pygame.display.set_mode((500, 500))
-pygame.display.set_caption("Virtual Leni Turtle")
 
-# Create and configure the virtual pet
-pet = VirtualLeniTurtle([r"BESTturtle_idle.png", r"BESTturtle_idle2.png"], 200, 150)
-clock = pygame.time.Clock()
+def run():
 
-running = True
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+    width = 500
+    height = 500
+    screen = pygame.display.set_mode([width, height])
+    pygame.display.set_caption("Virtual Leni Turtle")
+    fps = 60
+    #timer = pygame.time.Clock()
+    # Create and configure the virtual pet
+    pet = VirtualLeniTurtle([r"BESTturtle_idle.png", r"BESTturtle_idle2.png"], 200, 150)
+    clock = pygame.time.Clock()
+    
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
 
-    pet.update()
+        pet.update()
+        #screen.fill((0, 206, 209))
+        screen.blit(pet.get_current_frame(), (pet.x, pet.y))
+        pygame.display.flip()
 
-    screen.fill((0, 206, 209))
-    screen.blit(pet.get_current_frame(), (pet.x, pet.y))
-    pygame.display.flip()
-    clock.tick(10)  # Adjust the frame rate as needed
+        #screen.fill('light blue')
+        clock.tick(fps)
+        
+        for event in pygame.event.get():
+            if event.type  == pygame.QUIT:
+                running = False
 
-pygame.quit()
+        screen.fill((0, 206, 209))
+        screen.blit(pet.get_current_frame(), (pet.x, pet.y))
+        pygame.display.flip()
+        clock.tick(10)  # Adjust the frame rate as needed
+    
+    pygame.quit()
